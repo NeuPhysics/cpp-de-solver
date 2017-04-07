@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leima/github/neuphysics/cpp-de-solver/gsl-1/main.cpp
+iostream
+-
+boost/array.hpp
+-
+boost/numeric/odeint.hpp
+-
+

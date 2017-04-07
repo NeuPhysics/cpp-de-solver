@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leima/github/neuphysics/cpp-de-solver/misc/main.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+iterator
+-
+vector
+-
+

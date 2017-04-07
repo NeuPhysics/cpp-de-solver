@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leima/github/neuphysics/cpp-de-solver/boost-1/main.cpp
+iostream
+-
+vector
+-
+fstream
+-
+algorithm
+-
+iterator
+-
+boost/numeric/odeint.hpp
+-
+
