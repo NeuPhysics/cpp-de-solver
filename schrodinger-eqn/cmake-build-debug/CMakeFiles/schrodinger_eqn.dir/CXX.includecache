@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leima/github/neuphysics/cpp-de-solver/schrodinger-eqn/main.cpp
+iostream
+-
+vector
+-
+fstream
+-
+algorithm
+-
+iterator
+-
+complex
+-
+boost/numeric/odeint.hpp
+-
+
