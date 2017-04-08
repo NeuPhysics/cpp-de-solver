@@ -11,13 +11,24 @@
 #include <algorithm>
 #include <iterator>
 #include <complex>
+#include <boost/numeric/ublas/blas.hpp>
+#include <boost/numeric/ublas/vector.hpp>
+#include <boost/numeric/ublas/vector_proxy.hpp>
+#include <boost/numeric/ublas/assignment.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/odeint.hpp>
 using namespace std;
 using namespace boost::numeric::odeint;
 
 /* The type of container used to hold the state vector */
 typedef complex<double> wave_amp;
-typedef vector<wave_amp> wave_fun;
+typedef array< complex<double> , 2> wave_fun;
+typedef controlled_runge_kutta< runge_kutta_cash_karp54<wave_fun> > stepper_type;
+//typedef runge_kutta4< wave_fun > stepper_type;
+//typedef runge_kutta4< wave_fun , double ,
+//        wave_fun , double ,
+//        vector_space_algebra > stepper_type;
 // Define wave function
 
 // Define lambda and omega
@@ -43,19 +54,19 @@ int main() {
 
     wave_fun psi;
 
-    psi[0] = 1.0 * I;
-    psi[1] = 1.0 * I;
+    psi[0] = 0.5 + 0.3 * I ;
+    psi[1] = 1.0 + 0.9 * I ;
 
     int STEPS = 1000;
     double STEP_SIZE = 0.1;
 
     ofstream data;
 
-    data.open("complex.txt");
+    data.open("schrodinger.txt");
 
     for (int i = 0; i < STEPS; i++) {
 
-        cout << integrate(schrodinger, psi, (i) * 10.0 / STEPS, (i + 1) * 10.0 / STEPS, STEP_SIZE) << endl;
+        cout << integrate_adaptive( stepper_type() , schrodinger, psi, (i) * 10.0 / STEPS, (i + 1) * 10.0 / STEPS, STEP_SIZE ) << endl;
 
         data << psi[0].real() << " , " << psi[0].imag() << " , " << psi[1].real() << " , " << psi[1].imag() << "\n";
         cout << psi[0] << " , " << psi[1] << endl;

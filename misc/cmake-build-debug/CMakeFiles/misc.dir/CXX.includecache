@@ -9,12 +9,20 @@
 /Users/leima/github/neuphysics/cpp-de-solver/misc/main.cpp
 iostream
 -
-fstream
+complex
 -
-algorithm
+boost/numeric/ublas/blas.hpp
 -
-iterator
+boost/numeric/ublas/vector.hpp
 -
-vector
+boost/numeric/ublas/vector_proxy.hpp
+-
+boost/numeric/ublas/assignment.hpp
+-
+boost/numeric/ublas/matrix.hpp
+-
+boost/numeric/ublas/io.hpp
+-
+boost/numeric/odeint.hpp
 -
 
