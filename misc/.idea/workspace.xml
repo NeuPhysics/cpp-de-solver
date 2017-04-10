@@ -11,18 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e00c682-ff7f-4de0-a83c-00cbc754e1a9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/misc.dir/main.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/CMakeFiles/Progress/1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/CMakeFiles/Progress/count.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/schrodinger_eqn" afterPath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/schrodinger_eqn" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/misc.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/misc.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../schrodinger-eqn/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../schrodinger-eqn/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/CMakeFiles/schrodinger_eqn.dir/CXX.includecache" afterPath="$PROJECT_DIR$/../schrodinger-eqn/cmake-build-debug/CMakeFiles/schrodinger_eqn.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../schrodinger-eqn/main.cpp" afterPath="$PROJECT_DIR$/../schrodinger-eqn/main.cpp" />
-    </list>
+    <list default="true" id="6e00c682-ff7f-4de0-a83c-00cbc754e1a9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

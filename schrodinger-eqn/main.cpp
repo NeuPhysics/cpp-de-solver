@@ -33,8 +33,13 @@ typedef controlled_runge_kutta< runge_kutta_cash_karp54<wave_fun> > stepper_type
 
 // Define lambda and omega
 
-const double omega = 1.0;
-const double lambda = 0.1;
+const double s2theta = 0.92; // sin^2 2theta;theta_{12}
+const double c2theta = sqrt( 1 - pow( s2theta, 2.0) );
+const double energy = 1.0; //in unit of MeV
+//const double deltam2 = 2.5e-15; // delta m _{23} in unit of MeV^2
+const double deltam2 = 7.5e-17; // delta m _{12} in unit of MeV^2
+//const double omega = deltam2/(2*energy); // omega vacuum
+const double omega = 1.0; // scale all quantities using omega, now distance is x omega
 
 const complex<double> I(0.0,1.0);
 
@@ -42,9 +47,17 @@ const complex<double> I(0.0,1.0);
 // harmonic oscillator system prepared for use in odeint
 void schrodinger( const wave_fun & psi, wave_fun & dpsidt , const double /* t */ ) {
 
-    dpsidt[0] = psi[0] * I;
-    dpsidt[1] = psi[1] * I;
+    dpsidt[0] = - I * (omega / 2) * ( -c2theta * psi[0] + s2theta * psi[1] );
+    dpsidt[1] = - I * ( omega / 2) * ( s2theta * psi[0] + c2theta * psi[1] );
 
+}
+
+double vac_osc( double x ) {
+    return 1 - pow(s2theta,2.0) * pow( sin ( omega * x/ 2 ) , 2.0 ) ;
+}
+
+double xhat2x (double xhat) {
+    return (xhat / 0.190 ) * ( 7.5e-17 / deltam2 ) * ( energy / 1.0 ) ; //return x in km
 }
 
 
@@ -54,22 +67,26 @@ int main() {
 
     wave_fun psi;
 
-    psi[0] = 0.5 + 0.3 * I ;
-    psi[1] = 1.0 + 0.9 * I ;
+    psi[0] = 1.0;
+    psi[1] = 0.0;
 
-    int STEPS = 1000;
+    int STEPS = 2000;
     double STEP_SIZE = 0.1;
+    double END_POINT = 100;
 
     ofstream data;
 
-    data.open("schrodinger.txt");
+    data.open("vac_osc.txt");
+
 
     for (int i = 0; i < STEPS; i++) {
 
-        cout << integrate_adaptive( stepper_type() , schrodinger, psi, (i) * 10.0 / STEPS, (i + 1) * 10.0 / STEPS, STEP_SIZE ) << endl;
+        cout << integrate_adaptive( stepper_type() , schrodinger, psi, (i) * END_POINT / STEPS, (i + 1) * END_POINT / STEPS, STEP_SIZE ) << endl;
 
-        data << psi[0].real() << " , " << psi[0].imag() << " , " << psi[1].real() << " , " << psi[1].imag() << "\n";
+        data << (i + 1) * END_POINT / STEPS << " , " << xhat2x((i + 1) * END_POINT / STEPS ) << " , " << psi[0].real() << " , " << psi[0].imag() << " , " << psi[1].real() << " , " << psi[1].imag() << " , " << norm(psi[0]) << " , " << vac_osc( (i + 1) * END_POINT / STEPS ) << "\n";
         cout << psi[0] << " , " << psi[1] << endl;
+        cout << norm(psi[0]) << endl;
+        cout << vac_osc( (i + 1) * END_POINT / STEPS ) << endl;
     }
 
     data.close();
@@ -78,4 +95,4 @@ int main() {
 
     return 0;
 
-}
+} // To plot data using gnuplot: gnuplot -e "set terminal png; set datafile separator ','; plot 'vac_osc.txt' using 2:7 with points, 'vac_osc.txt' using 2:8 smooth csplines" | imgcat
