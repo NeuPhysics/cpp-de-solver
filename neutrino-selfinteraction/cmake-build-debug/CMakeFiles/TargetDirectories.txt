@@ -1,0 +1,3 @@
+/Users/leima/github/neuphysics/cpp-de-solver/neutrino-selfinteraction/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/leima/github/neuphysics/cpp-de-solver/neutrino-selfinteraction/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/leima/github/neuphysics/cpp-de-solver/neutrino-selfinteraction/cmake-build-debug/CMakeFiles/neutrino_selfinteraction.dir

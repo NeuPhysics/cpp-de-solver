@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/leima/github/neuphysics/cpp-de-solver/neutrino-selfinteraction/main.cpp
+iostream
+-
+vector
+-
+fstream
+-
+algorithm
+-
+iterator
+-
+complex
+-
+boost/numeric/ublas/blas.hpp
+-
+boost/numeric/ublas/vector.hpp
+-
+boost/numeric/ublas/vector_proxy.hpp
+-
+boost/numeric/ublas/assignment.hpp
+-
+boost/numeric/ublas/matrix.hpp
+-
+boost/numeric/ublas/io.hpp
+-
+boost/numeric/odeint.hpp
+-
+
