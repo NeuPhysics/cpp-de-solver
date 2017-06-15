@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <iterator>
 #include <complex>
+#include <math.h>
 #include <boost/numeric/ublas/blas.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
@@ -40,9 +41,37 @@ const double energy = 1.0; //in unit of MeV
 const double deltam2 = 7.5e-17; // delta m _{12} in unit of MeV^2
 //const double omega = deltam2/(2*energy); // omega vacuum
 const double omega = 1.0; // scale all quantities using omega, now distance is x omega
+const double theta_array[4] = { M_PI/6, M_PI/3, 2*M_PI/3, 5*M_PI/6 };
+const double alpha_array[4] = { 1.0, -1.0, -1.0, 1.0 };
+const int beams_N = sizeof(theta_array)/ sizeof(theta_array[0]);
 
 const complex<double> I(0.0,1.0);
 
+double xi_fun( double theta1, double theta2) {
+
+    return 1.0 - cos( theta1 - theta2 );
+}
+
+int** rho_mat( const wave_fun & psi ){
+
+//    int * density_mat_ptr;
+//
+//    complex<double> density_mat = { { pow( abs(psi[0]), 2.0) , psi[0]* conj(psi[1]) }, { conj(psi[0]) * psi[1], pow( abs(psi[1]), 2.0) } };
+//
+//    density_mat_ptr = density_mat;
+//
+//    return density_mat_ptr;
+
+}
+
+double* hamilnu( const wave_fun & psi, int index ) {
+
+
+    for(int i=0; i< beams_N; i++){
+
+    }
+
+} // TODO: Make it general and array of structure
 
 // harmonic oscillator system prepared for use in odeint
 void schrodinger( const wave_fun & psi, wave_fun & dpsidt , const double /* t */ ) {
